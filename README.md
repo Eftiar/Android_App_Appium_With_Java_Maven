@@ -82,7 +82,7 @@ Close all terminal windows and reopen a terminal window and check the Android ho
 ![image](https://user-images.githubusercontent.com/89891201/205624450-63048bdb-25ec-4d68-a24a-f079972a7691.png)
 
 
-# Step-4: Install Node.js and npm
+# Step-4: Install Node.js and npm 
   
 Go to https://nodejs.org/en/download/ download and install node package. It is pretty straightforward.
 
