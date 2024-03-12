@@ -1,10 +1,10 @@
 # Appium Installation And Run The Test
 
-# Step-1: Install JAVA JDK (Ignore if you alreday had it)
+# Step-1: Install JAVA JDK (Ignore if you already had it)
     
-You should go to the below link and install JAVA JDK for MAC OS.
+You should go to the below link and install JAVA JDK for  macOS.
 
-https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 
 
 After installation checks the below path to find JAVA HOME, for my version it is as shown below.
 
@@ -12,7 +12,7 @@ After installation checks the below path to find JAVA HOME, for my version it is
 
 ![image](https://user-images.githubusercontent.com/89891201/205619346-4d26f63b-3682-4b1b-a6f5-c08b97e41f63.png)
 
-Then set JAVA_HOME on your Mac as shown below:
+Then set JAVA_HOME on your Mac as shown below: 
 
     - export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home
 
@@ -57,7 +57,7 @@ Do below settings in .profile file. Open a terminal and type
 
     - nano ~/.profile
 
-Then, paste the below commands: (Change your user name! Not use my username “onur”).
+Then, paste the below commands: (Change your username! Not use my username “onur”).
 
     - export ANDROID_HOME=/Users/onur/Library/Android/sdk
 
@@ -67,7 +67,6 @@ Then, paste the below commands: (Change your user name! Not use my username “o
     - export PATH=$ANDROID_HOME/tools/bin:$PATH
 
 ![image](https://user-images.githubusercontent.com/89891201/205622169-93cd0756-efb1-487f-82a9-e56038f13ad1.png)
-
 
 # Step-3: Install Homebrew
     
@@ -108,7 +107,7 @@ In order to install appium via terminal you need to run the below commands:
 
 # Step-6: Download Appium Desktop
     
-Let’s go to this link: https://github.com/appium/appium-desktop/releases/  and download appium for mac. You should click and download .dgm file. For example, “Appium-mac-1.20.2.dmg“. When the download finishes, double click the .dgm file and drag and drop the Appium into Applications as shown below.
+Let’s go to this link: https://github.com/appium/appium-desktop/releases/  and download appium for mac. You should click and download .dgm file. For example, “Appium-mac-1.20.2.dmg“. When the download finishes, double-click the .dgm file and drag and drop the Appium into Applications as shown below.
 
 ![image](https://user-images.githubusercontent.com/89891201/205629098-5e4a24f8-f6da-49bf-950d-1c0030cc5093.png)
 
