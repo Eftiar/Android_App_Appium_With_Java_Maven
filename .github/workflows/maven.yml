@@ -16,6 +16,9 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: Install ChromeDriver
+        run: npm install chromedriver
+
       - name: Set APK Path
         run: echo "APK_PATH=$(echo $GITHUB_WORKSPACE)/app/app-koalaLabs-staging-release.apk" >> $GITHUB_ENV
 
