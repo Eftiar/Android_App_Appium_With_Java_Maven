@@ -53,6 +53,8 @@ public class BaseClass {
 
 		capability.setCapability(MobileCapabilityType.APP, apkPath);
 
+		capability.setCapability("autoDownloadDriver", true);
+
 //		capability.setCapability("appPackage", properties.getProperty("appPackage")); // app capability
 
 //		capability.setCapability("appActivity", properties.getProperty("appActivity")); //app activity
