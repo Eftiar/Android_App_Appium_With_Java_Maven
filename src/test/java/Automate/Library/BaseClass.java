@@ -45,11 +45,17 @@ public class BaseClass {
 
 		capability.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
 
-		// capability.setCapability(MobileCapabilityType.APP, "C:\\User\\Downloads\\app-debug.apk");
+		String apkPath = System.getenv("APK_PATH");
+		if (apkPath == null || apkPath.isEmpty()) {
+			// Fallback to a default path or handle the error
+			apkPath = "/Users/eftiarbd/Documents/Android_App_Appium_With_Java_Maven/app/app-koalaLabs-staging-release.apk";
+		}
 
-		capability.setCapability("appPackage", properties.getProperty("appPackage")); // app capability
+		capability.setCapability(MobileCapabilityType.APP, apkPath);
 
-		capability.setCapability("appActivity", properties.getProperty("appActivity")); //app activity
+//		capability.setCapability("appPackage", properties.getProperty("appPackage")); // app capability
+
+//		capability.setCapability("appActivity", properties.getProperty("appActivity")); //app activity
 
 		//capability.setCapability(MobileCapabilityType.NO_RESET, true);
 
