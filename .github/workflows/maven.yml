@@ -17,7 +17,12 @@ jobs:
           java-version: 1.8
 
       - name: Install ChromeDriver
-        run: npm install chromedriver
+        run: |
+          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          curl -sS -o /tmp/chromedriver_mac64.zip "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_mac64.zip"
+          unzip -qq /tmp/chromedriver_mac64.zip -d /tmp
+          chmod +x /tmp/chromedriver
+          sudo mv /tmp/chromedriver /usr/local/bin/chromedriver
 
       - name: Set APK Path
         run: echo "APK_PATH=$(echo $GITHUB_WORKSPACE)/app/app-koalaLabs-staging-release.apk" >> $GITHUB_ENV
