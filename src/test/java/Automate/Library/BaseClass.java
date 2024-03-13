@@ -61,7 +61,7 @@ public class BaseClass {
 
 		//capability.setCapability(MobileCapabilityType.NO_RESET, true);
 
-		driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capability);
+		driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), capability);
 
 	}
 
