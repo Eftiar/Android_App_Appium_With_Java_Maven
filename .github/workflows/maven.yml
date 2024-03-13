@@ -17,7 +17,7 @@ jobs:
           java-version: 1.8
 
       - name: Set APK Path
-        run: echo "APK_PATH= /app/app-koalaLabs-staging-release.apk" >> $GITHUB_ENV
+        run: echo "APK_PATH=$(echo $GITHUB_WORKSPACE)/app/app-koalaLabs-staging-release.apk" >> $GITHUB_ENV
 
       - name: Install AVD files
         run: |
