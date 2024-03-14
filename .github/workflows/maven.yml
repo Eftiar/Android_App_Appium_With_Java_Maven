@@ -21,13 +21,13 @@ jobs:
 
       - name: Install AVD files
         run: |
-          yes | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-29;default;x86_64'
+          yes | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-34;default;x86_64'
           yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
       - name: Create Android emulator
         run: |
-          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n Pixel_API_29_AOSP -d pixel --package 'system-images;android-29;default;x86_64' --force
-          emulator_config=~/.android/avd/Pixel_API_29_AOSP.avd/config.ini
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n Pixel_API_34_AOSP -d pixel --package 'system-images;android-34;default;x86_64' --force
+          emulator_config=~/.android/avd/Pixel_API_34_AOSP.avd/config.ini
           sed -i .bak 's/hw.lcd.density=.*/hw.lcd.density=420/' "$emulator_config"
           sed -i .bak 's/hw.lcd.height=.*/hw.lcd.height=1920/' "$emulator_config"
           sed -i .bak 's/hw.lcd.width=.*/hw.lcd.width=1080/' "$emulator_config"
@@ -43,7 +43,7 @@ jobs:
 
       - name: Start Android emulator
         run: |
-          nohup $ANDROID_HOME/emulator/emulator -avd Pixel_API_29_AOSP -no-snapshot -no-window -no-audio -no-boot-anim -camera-back none -camera-front none -qemu -m 2048 > /dev/null 2>&1 &
+          nohup $ANDROID_HOME/emulator/emulator -avd Pixel_API_34_AOSP -no-snapshot -no-window -no-audio -no-boot-anim -camera-back none -camera-front none -qemu -m 2048 > /dev/null 2>&1 &
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
 
       - name: Install Appium
