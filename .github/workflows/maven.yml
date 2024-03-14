@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -28,9 +28,9 @@ jobs:
         run: |
           echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n Pixel_API_29_AOSP -d pixel --package 'system-images;android-29;default;x86_64' --force
           emulator_config=~/.android/avd/Pixel_API_29_AOSP.avd/config.ini
-          sed -i .bak 's/hw.lcd.density=.*/hw.lcd.density=420/' "$emulator_config"
-          sed -i .bak 's/hw.lcd.height=.*/hw.lcd.height=1920/' "$emulator_config"
-          sed -i .bak 's/hw.lcd.width=.*/hw.lcd.width=1080/' "$emulator_config"
+          sed -i 's/hw.lcd.density=.*/hw.lcd.density=420/' "$emulator_config"
+          sed -i 's/hw.lcd.height=.*/hw.lcd.height=1920/' "$emulator_config"
+          sed -i 's/hw.lcd.width=.*/hw.lcd.width=1080/' "$emulator_config"
           if ! grep -q "hw.lcd.density" "$emulator_config"; then
             echo "hw.lcd.density=420" >> "$emulator_config"
           fi
@@ -50,6 +50,6 @@ jobs:
         uses: moatazeldebsy/appium-server-gitHub-action@V1.0.4
       - name: Check Appium Server
         run: pgrep -f "appium" || echo "Appium server is not running"
-        
+
       - name: Run TestNG Tests
         run: mvn test
