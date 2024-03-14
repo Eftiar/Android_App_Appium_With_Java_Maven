@@ -53,7 +53,7 @@ jobs:
           sudo npm install -g appium-doctor
 
       - name: Start Appium Server with ChromeDriver Autodownload
-        run: appium server --allow-insecure chromedriver_autodownload & appium-doctor
+        run: appium --allow-insecure chromedriver_autodownload & appium-doctor
       - name: Check Appium Server
         run: pgrep -f "appium" || echo "Appium server is not running"
 
