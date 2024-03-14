@@ -55,8 +55,7 @@ jobs:
       - name: Start Appium Server with ChromeDriver Autodownload
         run: appium server --allow-insecure chromedriver_autodownload & appium-doctor
       - name: Check Appium Server
-        run: |
-          nc -zv 127.0.0.1 4723 && echo "Appium server is running" || echo "Appium server is not running"
+        run: ps aux | grep appium | grep -v grep
 
       - name: Run TestNG Tests
         run: mvn test
