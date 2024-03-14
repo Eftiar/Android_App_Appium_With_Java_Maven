@@ -52,18 +52,18 @@ jobs:
           sudo npm install -g appium@1.22.3
           sudo npm install -g appium-doctor
 
-      - name: Start Appium Server with ChromeDriver Autodownload
-        run: appium --allow-insecure chromedriver_autodownload & appium-doctor
-      - name: Check Appium Server
-        run: pgrep -f "appium" || echo "Appium server is not running"
-
       - name: Download and Setup ChromeDriver for macOS
         run: |
-          CHROMEDRIVER_VERSION=74.0.3729.6
+          CHROMEDRIVER_VERSION=113.0.5672.63
           wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_mac64.zip
           unzip chromedriver_mac64.zip
           sudo mv chromedriver /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
+
+      - name: Start Appium Server with ChromeDriver Autodownload
+        run: appium --allow-insecure chromedriver_autodownload --chromedriver-executable /usr/local/bin/chromedriver & appium-doctor
+      - name: Check Appium Server
+        run: pgrep -f "appium" || echo "Appium server is not running"
 
       - name: Run TestNG Tests
         run: mvn test
