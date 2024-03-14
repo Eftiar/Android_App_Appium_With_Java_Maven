@@ -46,19 +46,10 @@ jobs:
           nohup $ANDROID_HOME/emulator/emulator -avd Pixel_API_29_AOSP -no-snapshot -no-window -no-audio -no-boot-anim -camera-back none -camera-front none -qemu -m 2048 > /dev/null 2>&1 &
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
 
-      - name: Install Appium
-        run: |
-          sudo npm install -g appium
-          sudo npm install -g appium@1.22.3
-          sudo npm install -g appium-doctor
-
-      - name: Start Appium Server with ChromeDriver Autodownload
-        run: appium server --allow-insecure chromedriver_autodownload && appium --allow-insecure=adb_security --port 4723 --address 0.0.0.0 & appium-doctor
-      - name: Check Appium Server
-        run: |
-          nc -zv 127.0.0.1 4723 && echo "Appium server is running" || echo "Appium server is not running"
+      - name: Install and Run Appium Server
+        uses: moatazeldebsy/appium-server-gitHub-action@V1.0.4
       - name: Check Appium Server
         run: pgrep -f "appium" || echo "Appium server is not running"
-
+        
       - name: Run TestNG Tests
         run: mvn test
