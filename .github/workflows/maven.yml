@@ -54,6 +54,9 @@ jobs:
 
       - name: Start Appium Server with ChromeDriver Autodownload
         run: appium server --allow-insecure chromedriver_autodownload && appium --allow-insecure=adb_security --port 4723 --address 0.0.0.0 & appium-doctor
-
+      - name: Check Appium Server
+        run: |
+          nc -zv 127.0.0.1 4723 && echo "Appium server is running" || echo "Appium server is not running"
+          
       - name: Run TestNG Tests
         run: mvn test
