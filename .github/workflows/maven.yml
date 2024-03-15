@@ -69,7 +69,8 @@ jobs:
         run: mvn test
 
       - name: Send Slack notification
-        uses: rtCamp/action-slack-notify@v3
-        with:
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          message: "Tests have completed running on GitHub Actions. See results here"
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Tests have completed running on GitHub Actions."}' $SLACK_WEBHOOK_URL
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      
