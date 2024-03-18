@@ -73,13 +73,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           GITHUB_RUN_URL: ${{ github.run_url }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Tests have completed running on GitHub Actions. See the workflow run at: $GITHUB_RUN_URL\"}" $SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Tests have completed running on GitHub Actions. See the workflow run at: ${{ github.run_url }}\"}" $SLACK_WEBHOOK_URL
 
 
-      - name: Report test results to TestRail
-        env:
-          TESTRAIL_URL: ${{ secrets.TESTRAIL_URL }}
-          TESTRAIL_USERNAME: ${{ secrets.TESTRAIL_USERNAME }}
-          TESTRAIL_PASSWORD: ${{ secrets.TESTRAIL_PASSWORD }}
-          TESTRAIL_PROJECT_ID: 44
-        run: mvn testrail:results
+
