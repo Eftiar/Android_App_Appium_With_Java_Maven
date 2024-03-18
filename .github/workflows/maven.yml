@@ -71,9 +71,9 @@ jobs:
       - name: Send Slack notification
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          GITHUB_RUN_URL: ${{ github.run_url }}
+          GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Tests have completed running on GitHub Actions. See the workflow run at: ${{ github.run_url }}\"}" $SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Tests have completed running on GitHub Actions. See the workflow run at: $GITHUB_RUN_URL\"}" $SLACK_WEBHOOK_URL
 
 
 
