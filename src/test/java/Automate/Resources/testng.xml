@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/Users/eftiarbd/Downloads/test">
-        <classes>
-            <class name="Automate.Pages.TestCases.TC001GuestWelcomeScreen"></class>
-        </classes>
-    </test>
+<suite name="Smoke test suit">
+
+<listeners>
+    <listener class-name="Automate.Pages.TestCases.TestListener"/>
+</listeners>
+
+<test name="YourTest">
+    <classes>
+        <class name="Automate.Pages.TestCases.TC001GuestWelcomeScreen"/>
+        <class name="Automate.Pages.TestCases.TC002SignIn"/>
+        <class name="Automate.Pages.TestCases.TC003SignUpWithValidInfo"/>
+        <class name="Automate.Pages.TestCases.TC003SignUpWithInValidInfo"/>
+    </classes>
+</test>
 </suite>
