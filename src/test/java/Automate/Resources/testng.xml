@@ -8,8 +8,8 @@
 
 <test name="YourTest">
     <classes>
-<!--        <class name="Automate.Pages.TestCases.TC001GuestWelcomeScreen"/>-->
-        <class name="Automate.Pages.TestCases.TC002SignIn"/>
+        <class name="Automate.Pages.TestCases.TC001GuestWelcomeScreen"/>
+<!--        <class name="Automate.Pages.TestCases.TC002SignIn"/>-->
 <!--        <class name="Automate.Pages.TestCases.TC003SignUpWithValidInfo"/>-->
 <!--        <class name="Automate.Pages.TestCases.TC003SignUpWithInValidInfo"/>-->
     </classes>
