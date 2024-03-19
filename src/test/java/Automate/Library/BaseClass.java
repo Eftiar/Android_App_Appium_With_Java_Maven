@@ -59,7 +59,7 @@ public class BaseClass {
 
 //		capability.setCapability("appActivity", properties.getProperty("appActivity")); //app activity
 
-		//capability.setCapability(MobileCapabilityType.NO_RESET, true);
+		capability.setCapability(MobileCapabilityType.NO_RESET, false);
 
 		driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capability);
 

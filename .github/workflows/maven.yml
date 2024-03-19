@@ -66,7 +66,7 @@ jobs:
         run: pgrep -f "appium" || echo "Appium server is not running"
 
       - name: Run TestNG Tests
-        run: mvn test
+        run: mvn clean test
 
       - name: Send Slack notification
         env:

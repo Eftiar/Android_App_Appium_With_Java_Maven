@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Smoke test suit]">
+  <listeners>
+    <listener class-name="Automate.Pages.TestCases.TestListener"/>
+  </listeners>
+  <test thread-count="5" verbose="0" name="YourTest(failed)">
+    <classes>
+      <class name="Automate.Pages.TestCases.TC002SignIn">
+        <methods>
+          <include name="screenVerification"/>
+          <include name="setupDriver"/>
+          <include name="verifyValidLogin"/>
+          <include name="testCaseTearDown"/>
+          <include name="verifyInValidLogin"/>
+        </methods>
+      </class> <!-- Automate.Pages.TestCases.TC002SignIn -->
+      <class name="Automate.Pages.TestCases.TC003SignUpWithInValidInfo">
+        <methods>
+          <include name="testCaseTearDown"/>
+          <include name="navigation"/>
+          <include name="verifyInValidSignUp"/>
+          <include name="setupDriver"/>
+        </methods>
+      </class> <!-- Automate.Pages.TestCases.TC003SignUpWithInValidInfo -->
+      <class name="Automate.Pages.TestCases.TC003SignUpWithValidInfo">
+        <methods>
+          <include name="verifyValidSignUp"/>
+          <include name="testCaseTearDown"/>
+          <include name="navigation"/>
+          <include name="setupDriver"/>
+        </methods>
+      </class> <!-- Automate.Pages.TestCases.TC003SignUpWithValidInfo -->
+      <class name="Automate.Pages.TestCases.TC001GuestWelcomeScreen">
+        <methods>
+          <include name="setupDriver"/>
+          <include name="testCaseTearDown"/>
+          <include name="screenVerification"/>
+        </methods>
+      </class> <!-- Automate.Pages.TestCases.TC001GuestWelcomeScreen -->
+    </classes>
+  </test> <!-- YourTest(failed) -->
+</suite> <!-- Failed suite [Smoke test suit] -->
