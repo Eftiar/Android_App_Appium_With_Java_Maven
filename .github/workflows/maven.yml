@@ -11,6 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set NOW environment variable
+      run: echo "NOW=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
@@ -68,13 +71,6 @@ jobs:
       - name: Run TestNG Tests
         run: mvn clean compile test
 
-      - name: Send Slack notification
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Tests have completed running on GitHub Actions. See the workflow run at: $GITHUB_RUN_URL\"}" $SLACK_WEBHOOK_URL
-
       - name: 🐍 Python setup
         if: always()
         uses: actions/setup-python@v3
@@ -96,8 +92,13 @@ jobs:
             --username ${{ vars.TESTRAIL_USERNAME }} \
             --key ${{ secrets.TESTRAIL_API_KEY }} \
             parse_junit \
-            --title "[${{env.NOW}}]:[app: ${{env.APP_ENV}}]:[branch: ${{github.ref_name}}] - ${{env.TESTRAIL_TESTRUN_NAME}}" \
+            --title "[${{env.NOW}}][app: koala labs]:[branch: Main] - Smoke Test Suit" \
             --run-description "Smoke run is performed by https://github.com/Eftiar/Android_App_Appium_With_Java_Maven/actions/runs/8370790903. Purpose: validate that build is stable from main branch" \
             -f "$(echo $GITHUB_WORKSPACE)/target/surefire-reports/TEST-TestSuite.xml" \
- 
-  
+
+      - name: Send Slack notification
+        env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            GITHUB_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Tests have completed running on GitHub Actions. See the workflow run at: $GITHUB_RUN_URL. Please check test result in TestRail - ${{ vars.TESTRAIL_HOST }}/index.php?/runs/overview/44\"}" $SLACK_WEBHOOK_URL
