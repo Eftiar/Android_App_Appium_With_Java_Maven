@@ -83,7 +83,7 @@ jobs:
 
       - name: 🚊 Install TestRail CLI
         if: always()
-        run: pip install trcli
+        run: pip install --upgrade trcli
 
       - name: ☁️ Upload test results to TestRail
         if: always()
