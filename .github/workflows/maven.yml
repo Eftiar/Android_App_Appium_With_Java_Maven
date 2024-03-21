@@ -66,7 +66,7 @@ jobs:
         run: pgrep -f "appium" || echo "Appium server is not running"
 
       - name: Run TestNG Tests
-        run: mvn clean test
+        run: mvn clean compile test
 
       - name: Send Slack notification
         env:
@@ -98,6 +98,6 @@ jobs:
             parse_junit \
             --title "[${{env.NOW}}]:[app: ${{env.APP_ENV}}]:[branch: ${{github.ref_name}}] - ${{env.TESTRAIL_TESTRUN_NAME}}" \
             --run-description "Smoke run is performed by https://github.com/Eftiar/Android_App_Appium_With_Java_Maven/actions/runs/8370790903. Purpose: validate that build is stable from main branch" \
-            -f "$(echo $GITHUB_WORKSPACE)/target/surefire-reports/testng-results.xml" \
+            -f "$(echo $GITHUB_WORKSPACE)/target/surefire-reports/TEST-TestSuite.xml" \
 
 

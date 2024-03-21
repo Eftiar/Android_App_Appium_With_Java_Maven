@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Smoke test suit" duration-ms="653904" started-at="2024-03-19T16:43:47 BDT" finished-at="2024-03-19T16:54:41 BDT">
+  <suite name="Smoke test suit" duration-ms="22458" started-at="2024-03-21T14:51:48 BDT" finished-at="2024-03-21T14:52:10 BDT">
     <groups>
     </groups>
-    <test name="YourTest" duration-ms="653904" started-at="2024-03-19T16:43:47 BDT" finished-at="2024-03-19T16:54:41 BDT">
+    <test name="YourTest" duration-ms="22458" started-at="2024-03-21T14:51:48 BDT" finished-at="2024-03-21T14:52:10 BDT">
       <class name="Automate.Pages.TestCases.TC001GuestWelcomeScreen">
-        <test-method status="PASS" signature="setupDriver()[pri:0, instance:Automate.Pages.TestCases.TC001GuestWelcomeScreen@6536e911]" name="setupDriver" is-config="true" duration-ms="9015" started-at="2024-03-19T16:43:47 BDT" finished-at="2024-03-19T16:43:56 BDT">
+        <test-method status="PASS" signature="setupDriver()[pri:0, instance:Automate.Pages.TestCases.TC001GuestWelcomeScreen@6536e911]" name="setupDriver" is-config="true" duration-ms="16906" started-at="2024-03-21T14:51:48 BDT" finished-at="2024-03-21T14:52:05 BDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupDriver -->
-        <test-method status="PASS" signature="screenVerification()[pri:0, instance:Automate.Pages.TestCases.TC001GuestWelcomeScreen@6536e911]" name="screenVerification" duration-ms="644003" started-at="2024-03-19T16:43:56 BDT" finished-at="2024-03-19T16:54:40 BDT">
+        <test-method status="PASS" signature="screenVerification()[pri:0, instance:Automate.Pages.TestCases.TC001GuestWelcomeScreen@6536e911]" name="screenVerification" duration-ms="4453" started-at="2024-03-21T14:52:05 BDT" finished-at="2024-03-21T14:52:09 BDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- screenVerification -->
-        <test-method status="PASS" signature="testCaseTearDown()[pri:0, instance:Automate.Pages.TestCases.TC001GuestWelcomeScreen@6536e911]" name="testCaseTearDown" is-config="true" duration-ms="739" started-at="2024-03-19T16:54:40 BDT" finished-at="2024-03-19T16:54:41 BDT">
+        <test-method status="PASS" signature="testCaseTearDown()[pri:0, instance:Automate.Pages.TestCases.TC001GuestWelcomeScreen@6536e911]" name="testCaseTearDown" is-config="true" duration-ms="932" started-at="2024-03-21T14:52:09 BDT" finished-at="2024-03-21T14:52:10 BDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCaseTearDown -->
