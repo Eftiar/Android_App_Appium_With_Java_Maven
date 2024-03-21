@@ -95,7 +95,7 @@ jobs:
             --project "${{ vars.TESTRAIL_PROJECT_NAME }}" \
             --username ${{ vars.TESTRAIL_USERNAME }} \
             --key ${{ secrets.TESTRAIL_API_KEY }} \
-            parse_testng \
+            parse_junit \
             --title "[${{env.NOW}}]:[app: ${{env.APP_ENV}}]:[branch: ${{github.ref_name}}] - ${{env.TESTRAIL_TESTRUN_NAME}}" \
             --run-description "Smoke run is performed by ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}. Purpose: validate that build is stable from ${{github.ref_name}} branch" \
             -f "target/surefire-reports/testng-results.xml"
