@@ -75,5 +75,29 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"Tests have completed running on GitHub Actions. See the workflow run at: $GITHUB_RUN_URL\"}" $SLACK_WEBHOOK_URL
 
+      - name: 🐍 Python setup
+        if: always()
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: 🚊 Install TestRail CLI
+        if: always()
+        run: pip install trcli
+
+      - name: ☁️ Upload test results to TestRail
+        if: always()
+        run: |
+          cd ${{env.PROJECT_FOLDER}}
+            # Upload test results to TestRail
+            trcli -y \
+            -h ${{ vars.TESTRAIL_HOST }} \
+            --project "${{ vars.TESTRAIL_PROJECT_NAME }}" \
+            --username ${{ vars.TESTRAIL_USERNAME }} \
+            --key ${{ secrets.TESTRAIL_API_KEY }} \
+            parse_junit \
+            --title "[${{env.NOW}}]:[app: ${{env.APP_ENV}}]:[branch: ${{github.ref_name}}] - ${{env.TESTRAIL_TESTRUN_NAME}}" \
+            --run-description "Smoke run is performed by ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}. Purpose: validate that build is stable from ${{github.ref_name}} branch" \
+            -f "target/surefire-reports/testng-results.xml"
 
 
