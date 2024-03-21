@@ -100,4 +100,4 @@ jobs:
             --run-description "Smoke run is performed by https://github.com/Eftiar/Android_App_Appium_With_Java_Maven/actions/runs/8370790903. Purpose: validate that build is stable from main branch" \
             -f "$(echo $GITHUB_WORKSPACE)/target/surefire-reports/TEST-TestSuite.xml" \
  
- 
+  
